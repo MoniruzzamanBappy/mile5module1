@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom With JS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* body{
+            /* border-radius: ; */
+        /* } */
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hello There!</h1>
+        <h2>My Awesome Blog</h2>
+    </header>
+    <main id="blogs-id" class="blogs">
+        <header>
+            <h3>Blog List</h3>
+            <ul id="blog-list">
+                <li>My Blog - 1</li>
+                <li>My Blog - 2</li>
+                <li>My Blog - 3</li>
+                <li>My Blog - 4</li>
+            </ul>
+        </header>
+        <article class="blog">
+            <h3 id="1-title">My Blog-1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et error ipsam, magni exercitationem
+                voluptatum dolores impedit amet voluptas alias minima consequatur voluptate, adipisci consectetur iste
+                ratione omnis non itaque.</p>
+        </article>
+        <article class="blog">
+            <h3 id="2-title">My Blog-2</h3>
+            <p>Reprehenderit, accusantium molestiae. Harum dicta, commodi illum magnam exercitationem maxime qui,
+                tenetur aliquid iste voluptates voluptatum porro eveniet ipsum eum, natus laudantium fuga perferendis
+                quo unde dolorum dignissimos? Doloribus, ducimus!</p>
+        </article>
+        <article id="third-blog" class="blog">
+            <h3 id="3-title">My Blog-3</h3>
+            <p>Sapiente distinctio excepturi ipsum nemo sit. Molestiae suscipit commodi a veritatis ex odit illo nostrum
+                ipsa ut eligendi, rerum odio maxime, placeat aliquid minus sit ullam accusamus eos enim porro?</p>
+        </article>
+    </main>
+
+    <script>
+        const first = document.getElementById('1-title');
+        first.style.color = 'red';
+        const second = document.getElementById('2-title');
+        second.style.color = 'green';
+        const third = document.getElementById('3-title');
+        third.style.textAlign = 'center';
+        third.style.border = '2px';
+        third.style.color = 'blue';
+
+
+        // By Query
+        const thirdBlog = document.querySelector('.blogs #third-blog p');
+        thirdBlog.style.backgroundColor = 'yellow';
+        const thirdBlog2 = document.querySelector('.blogs #third-blog h3');
+        thirdBlog2.style.color = 'red';
+        thirdBlog2.setAttribute('title', 'Blog Name');
+
+        // add something in html
+
+        const li = document.createElement('li');
+        li.innerText = 'My Blog - 5';
+        // append th item
+        const ulChild = document.getElementById('blog-list');
+        ulChild.appendChild(li);
+
+        // add something new in html
+
+        const article = document.createElement("article");
+        article.classList.add('blog');
+        const h3 = document.createElement("h3");
+        const p = document.createElement("p");
+
+        h3.innerText = 'My Blog-4';
+        p.innerText = 'Sapiente distinctio excepturi ipsum nemo sit. Molestiae suscipit commodi a veritatis ex odit illo nostrum ipsa ut eligendi';
+
+        article.appendChild(h3);
+        article.appendChild(p);
+
+        const blogiId = document.getElementById('blogs-id');
+        blogiId.appendChild(article);
+
+
+        // add something new in html
+
+        const article1 = document.createElement("article");
+        article1.classList.add('blog');
+
+        article1.innerHTML = `
+        <h3>My Blog-5 </h3>
+            <p>Sapiente distinctio excepturi ipsum nemo sit. Molestiae suscipit commodi a veritatis ex odit illo nostrum
+                ipsa ut eligendi, rerum odio maxime, placeat aliquid minus sit ullam accusamus eos enim porro?</p>
+        `;
+
+        const blogiId1 = document.getElementById('blogs-id');
+        blogiId1.appendChild(article1);
+
+
+        // explore js class name
+
+        const blogs = document.getElementsByClassName('blog');
+        for (const blog of blogs) {
+            blog.style.border = '2px solid red';
+            blog.style.margin = '10px';
+            blog.style.borderRadius = '10px';
+            blog.style.padding = '5px';
+        }
+
+    </script>
+</body>
+
+</html>
